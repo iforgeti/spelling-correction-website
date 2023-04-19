@@ -29,24 +29,10 @@
         <h2>Spelling Correction</h2>
 
         <div class="form-group">
-            <textarea id="inputText" rows="30" placeholder="Type or paste text here"></textarea>
-            <ul id="suggestions" class="list-group"></ul>
-                <!-- <li class="list-group-item" onclick="expandOption(1)">
-                    <span>Option 1</span>
-                    <div class="option-content" id="option-1">
-                        <div class="item-buttons">
-                            <button class="sub-option-button" onclick="handleButtonClick(1, 1)">Button 1</button>
-                            <button class="sub-option-button">Button 2</button>
-                            <button class="sub-option-button">Button 3</button>
-                        </div>
 
-                        <div class="item-buttons">
-                            <button class="sub-option-button2">ignore</button>
-                        </div>
+            <div class="inputText" id ="inputText" contenteditable="true" spellcheck="false" autocorrect="off" autocapitalize="off" data-lt-active="true" data-lt-toolbar="false" data-lt-editor-input="true" data-gramm="false"></div>
 
-                    </div>    
-                </li>
-            </ul>   -->   
+            <ul id="suggestions" class="list-group"></ul>  
         </div>
         <!-- <div class="form-group">
             <input type="submit" value="Correct Spelling">
@@ -104,6 +90,6 @@
         </div>
     </footer>
 </body>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 </html>

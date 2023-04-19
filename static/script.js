@@ -1,3 +1,5 @@
+
+
 function expandOption(optionId) {
     var optionContent = document.getElementById("option-" + optionId);
     var allOptionContents = document.getElementsByClassName("option-content");
@@ -7,17 +9,33 @@ function expandOption(optionId) {
         }
     }
     optionContent.style.maxHeight = optionContent.style.maxHeight === "0px" ? optionContent.scrollHeight + "px" : "0px";
+
+
+    var inputText = document.getElementById('inputText');
+    var text = inputText.innerHTML;
+    const wordpattern = new RegExp(`\\b(${optionId})\\b`, "g");
+    var highlightedText = text.replace(/<span class="highlighted">/g, '').replace(/<\/span>/g, '');
+    if (optionContent.style.maxHeight === "0px") {
+        highlightedText = highlightedText.replace(wordpattern, optionId);
+    } else {
+        highlightedText = highlightedText.replace(wordpattern, '<span class="highlighted">$&</span>');
+    }
+    inputText.innerHTML = highlightedText;
+
 }
 
-function handleButtonClick(optionId, buttonId) {
-    alert("Option " + optionId + ", Button " + buttonId + " clicked!");
-}
+// for (var i = 0; i < allOptionContents.length; i++)
+
+// function handleButtonClick(optionId, buttonId) {
+//     alert("Option " + optionId + ", Button " + buttonId + " clicked!");
+// }
+
 
 function Replace(option,subOption){
     const itxt_Editor = document.getElementById('inputText');
-    const currentText = itxt_Editor.value;
+    const currentText = itxt_Editor.innerText;
     const newText = currentText.replace(option, subOption);
-    itxt_Editor.value = newText;
+    itxt_Editor.innerText = newText;
 
     var suggestionsList = document.getElementById('suggestions');
     const listItemToRemove = Array.from(suggestionsList.children).find(item => {
@@ -30,20 +48,15 @@ function Replace(option,subOption){
 
 var itxt_Editor = document.getElementById('inputText');
 
-// document.getElementById('submitButton').addEventListener('click', function(event) {
-//   event.preventDefault(); // Prevent form submission
-//   document.getElementById('inputText').value = 'test submit'; // Set textarea value
-// });
-
-
 
 itxt_Editor.addEventListener('keydown', function(event) {
 
     if (event.code === "Space" || event.code === 'Enter') {
     //   console.log('Space bar pressed!');
-      var input_text = itxt_Editor.value;
+      var input_text = itxt_Editor.innerText;
       var words = input_text.trim().split(/\s+/);
       var wordCount = words.length;
+      console.log(input_text)
       if (wordCount >= 2){
         fetch('/suggestions?inputText=' + encodeURIComponent(input_text))
             .then(response => response.json())
@@ -76,25 +89,49 @@ itxt_Editor.addEventListener('keydown', function(event) {
                 });
                 listItem.appendChild(optionContent);
                 suggestionsList.appendChild(listItem);
-                
-                const itxt_Editor = document.getElementById('inputText');
-                const currentText = itxt_Editor.value;
-                // Create a regular expression pattern with the word or phrase as a variable
-                const regexPattern = new RegExp(`\\b(${option})\\b`, "g");
 
-                // Replace all occurrences of the word or phrase with the word or phrase wrapped in a span with red-underline class
-                const newText = currentText.replace(regexPattern, '<span class="red-underline">$1</span>');
-                itxt_Editor.innerHTML = newText;
+                // const itxt_Editor = document.getElementById('inputText');
+                // const currentText = itxt_Editor.innerHTML;
+                // var startPos = itxt_Editor.selectionStart;
+                // var endPos = itxt_Editor.selectionEnd;
+
+                // // Create a regular expression pattern with the word or phrase as a variable
+                // const regexPattern = new RegExp(`\\b(${option})\\b`, "g");
+
+                // // Replace all occurrences of the word or phrase with the word or phrase wrapped in a span with red-underline class
+                // const newText = currentText.replace(regexPattern, '<span class="red-underline">'+option+'</span>');
+                // itxt_Editor.innerHTML = newText;
+
+                
 
 
 
             }
+            // var itxt_Editor = document.getElementById('inputText');
+            // PosEnd(itxt_Editor);
+
 
           
         });
       }
     }
 });
+
+// function PosEnd(end) {
+//     var len = end.innerText.length;
+      
+//     // Mostly for Web Browsers
+//     if (end.setSelectionRange) {
+//         end.focus();
+//         end.setSelectionRange(len, len);
+//     } else if (end.createTextRange) {
+//         var t = end.createTextRange();
+//         t.collapse(true);
+//         t.moveEnd('character', len);
+//         t.moveStart('character', len);
+//         t.select();
+//     }
+// }
 
 
 // onmouseenter
@@ -104,7 +141,7 @@ itxt_Editor.addEventListener('keydown', function(event) {
 // // Add event listener to submit button
 // document.getElementById('submitButton').addEventListener('click', function(event) {
 //     event.preventDefault(); // Prevent form submission
-//     var inputText = document.getElementById('inputText').value;
+//     var inputText = document.getElementById('inputText').innertext;
 //     // Use your spelling correction logic to identify incorrect words and get suggestions
 //     var suggestions = ["Saab", "Volvo", "BMW"];//getWordSuggestions(inputText); // Replace this with your own logic
 //     if (suggestions.length > 0) {
@@ -143,9 +180,14 @@ itxt_Editor.addEventListener('keydown', function(event) {
 // function replaceIncorrectWord(suggestion) {
 //     if (incorrectWord !== null) {
 //         var inputText = document.getElementById('inputText');
-//         var text = inputText.value;
+//         var text = inputText.innertext;
 //         text = text.replace(incorrectWord, suggestion);
-//         inputText.value = text;
+//         inputText.innertext = text;
 //         incorrectWord = null;
 //     }
 // }
+
+// document.getElementById('submitButton').addEventListener('click', function(event) {
+//   event.preventDefault(); // Prevent form submission
+//   document.getElementById('inputText').innerText = 'test submit'; // Set textarea value
+// });

@@ -1,6 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Input Text within Form Group</title>
+    <style>
+        .form-group {
+            position: relative; /* Set the position property to relative */
+        }
+
+        .inputText {
+            width: 100%; /* Set the width to 100% to fill the parent div */
+            height: 100px; /* Set the desired height */
+            resize: none; /* Disable resizing of the div */
+            /* Add any additional styles as needed */
+        }
+    </style>
+</head>
+<body>
+    <div class="form-group">
+        <div class="inputText" contenteditable="true" spellcheck="false" autocorrect="off" autocapitalize="off" data-lt-active="true" data-lt-toolbar="false" data-lt-editor-input="true" data-gramm="false"></div>
+        <ul id="suggestions" class="list-group"></ul>
+    </div>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
     <title>Stack of Options</title>
     <style>
         .option {
@@ -73,4 +99,4 @@
         }
     </script>
 </body>
-</html>
+</html> -->

@@ -16,6 +16,7 @@ def check_word(sentence) :
     list_word = [word for word in result.split()]
     dict_candidate = {}
     list_worng_word = []
+    print(result,"-"*50)
     for idx,i in enumerate (sentence.split()) :
         if i not in list_word :
             pred_sent = result.split()
@@ -47,9 +48,7 @@ def index():
 @app.route('/suggestions')
 def generate_suggestions():
     prompt = request.args.get('inputText', '')
-
-
-
+    
     misspell_dict = check_word(prompt)
     # misspell_dict = {"teo":["the","there","this"],"heo":["how","hello","here"],"sdf":["free","span","go"]}
 

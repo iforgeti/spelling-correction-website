@@ -1,9 +1,12 @@
 .red-underline {
     text-decoration-line: underline;
-    text-decoration-style: wavy;
+    /* text-decoration-style: wavy; */
     text-decoration-color: red;
   }
   
+  .highlighted {
+    background-color: rgb(230, 121, 121);
+  }
 
 /* Style for the word suggestion popup */
 .form-group {
@@ -11,15 +14,17 @@
     justify-content: space-between;
 }
 
-#inputText {
-    flex: 1 0 50%; /* Set width to 50% and allow flex-shrink to 0 */
-    margin-right: 10px; /* Add some spacing between the two text boxes */
-}
-
-#inputText, #inputText2 {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.inputText {
+    width: 70%;
+    height: 400px;
+    resize: none;
+    border: none; /* Remove border */
+    padding: 10px; /* Add padding for a modern look */
+    font-family: Arial, sans-serif; /* Set font family */
+    background-color: #f2f2f2; /* Set background color */
+    color: #333; /* Set text color */
+    border-radius: 5px; /* Add rounded corners */
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
 }
 
 
@@ -107,9 +112,16 @@
     background-color: #0056b3;
 }
 
+h2 {
+    margin-bottom: 20px; /* Example margin */
+    color: white; /* Example text color */
+    padding: 10px; /* Example padding */
+    border-radius: 5px; /* Example border radius */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Example box shadow */
+    margin-bottom: 20px; /* Example margin */
+}
 
-
-body, figure, h1, h2, h3, p, ul {
+body, figure, h1, h3, p, ul {
     margin: 0;
     padding: 0;
 }
@@ -312,11 +324,12 @@ footer {
     margin-left: auto; /* Center the form container horizontally */
     margin-right: auto;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #3c1500;
     border-radius: 5px;
-    background-color: #fff;
+    background-color: #262626;
     box-sizing: border-box; /* Include padding and border in the width */
 }
+
 
 /* Update form element styles */
 .form-group {

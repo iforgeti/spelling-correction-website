@@ -1,0 +1,372 @@
+.red-underline {
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: red;
+  }
+  
+
+/* Style for the word suggestion popup */
+.form-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+#inputText {
+    flex: 1 0 50%; /* Set width to 50% and allow flex-shrink to 0 */
+    margin-right: 10px; /* Add some spacing between the two text boxes */
+}
+
+#inputText, #inputText2 {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+.list-group {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* List item styles */
+.list-group-item {
+    position: relative;
+    padding: 10px;
+    background-color: #ffffff;
+    border: none;
+    border-bottom: 1px solid #e9ecef;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* Option content styles */
+.option-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 10px;
+    transition: max-height 0.3s ease; /* Update: Add transition property for smooth animation */
+    background-color: #f8f9fa;
+    border: none;
+    border-bottom: 1px solid #e9ecef;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+/* Item buttons styles */
+.item-buttons {
+    display: flex;
+    padding: 5px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+
+
+/* Styles for the buttons */
+.sub-option-button {
+    margin-right: 5px;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.sub-option-button2 {
+    margin-right: 5px;
+    padding: 8px 12px;
+    background-color: #a70104;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.sub-option-button:hover {
+    background-color: #0056b3;
+}
+
+
+
+body, figure, h1, h2, h3, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin-top: 10px;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #999;
+}
+
+section {
+    padding: 80px 0;
+}
+
+section h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.feature-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.feature {
+    flex-basis: calc(33.33% - 40px);
+    text-align: center;
+}
+
+.feature img {
+    width: 100%;
+    max-height: 150px;
+    object-fit: scale-down;
+    border-radius: 5px;
+}
+
+.feature h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.feature p {
+    font-size: 14px;
+    color: #666;
+}
+
+#about p {
+    max-width: 800px;
+    margin: 0 auto;
+}
+/* 
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+form textarea {
+    resize: none;
+}
+
+form input[type="submit"] {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #666;
+} */
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer p {
+    font-size: 14px;
+}
+/* Add some padding and margin to elements for spacing */
+.container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+header {
+    margin-bottom: 40px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #666;
+}
+
+.form-group textarea {
+    resize: none;
+}
+
+.form-group input[type="submit"] {
+    padding: 12px 24px;
+    font-size: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+    background-color: #333;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.form-group input[type="submit"]:hover {
+    background-color: #666;
+}
+
+footer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+/* Update form container styles */
+/* Update form container styles */
+.form-container {
+    width: 80%; /* Set a custom width, e.g. 80% */
+    margin-top: 50px;
+    margin-left: auto; /* Center the form container horizontally */
+    margin-right: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-sizing: border-box; /* Include padding and border in the width */
+}
+
+/* Update form element styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #666;
+}
+
+.form-group textarea {
+    resize: none;
+}
+
+.form-group input[type="submit"] {
+    padding: 12px 24px;
+    font-size: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+    background-color: #333;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.form-group input[type="submit"]:hover {
+    background-color: #666;
+}
+
+
+#suggestions {
+
+    width: 250px;
+}

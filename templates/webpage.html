@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Auto Spelling Correction</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Auto Spelling Correction</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="home">
+        <div class="container">
+            <h2>Welcome to Our Website</h2>
+            <p>Welcome to AutoSpell, the premier spelling correction tool that helps you write with confidence. Say goodbye to embarrassing spelling mistakes and typos in your text. With AutoSpell, you can easily correct spelling errors in your documents, emails, social media posts, and more. </p>
+            <a href="#features" class="btn">Learn More</a>
+        </div>
+    </section>
+
+
+    <div class="form-container">
+        <h2>Spelling Correction</h2>
+
+        <div class="form-group">
+            <textarea id="inputText" rows="30" placeholder="Type or paste text here"></textarea>
+            <ul id="suggestions" class="list-group"></ul>
+                <!-- <li class="list-group-item" onclick="expandOption(1)">
+                    <span>Option 1</span>
+                    <div class="option-content" id="option-1">
+                        <div class="item-buttons">
+                            <button class="sub-option-button" onclick="handleButtonClick(1, 1)">Button 1</button>
+                            <button class="sub-option-button">Button 2</button>
+                            <button class="sub-option-button">Button 3</button>
+                        </div>
+
+                        <div class="item-buttons">
+                            <button class="sub-option-button2">ignore</button>
+                        </div>
+
+                    </div>    
+                </li>
+            </ul>   -->   
+        </div>
+        <!-- <div class="form-group">
+            <input type="submit" value="Correct Spelling">
+        </div> -->
+
+    </div>
+
+
+    <!-- <div id="wordSuggestionPopup"></div> Popup container -->
+
+    <section id="features">
+        <div class="container">
+            <h2>Features</h2>
+            <div class="feature-box">
+                <div class="feature">
+                    <img src="../figure/fast.png" alt="Feature 1">
+                    <h3>Instant Correction</h3>
+                    <p>Our auto spelling correction tool corrects your text in real-time, making sure your writing is error-free.</p>
+                </div>
+                <div class="feature">
+                    <img src="../figure/easy.png" alt="Feature 2">
+                    <h3>Easy to Use</h3>
+                    <p>With a simple and intuitive interface, our tool is easy to use for users of all skill levels.</p>
+                </div>
+                <div class="feature">
+                    <img src="../figure/checked.png" alt="Feature 3">
+                    <h3>Wide Language Support</h3>
+                    <p>We support multiple languages, ensuring that our tool can assist you with various writing tasks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Young kid mai ook</p>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>If you have any questions, feedback, or suggestions, feel free to contact us using the form below or via email or phone. We'd love to hear from you!</p>
+            <form action="submit_form.php" method="post">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="message" placeholder="Message" rows="5" required></textarea>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Auto Spelling Correction Group krub.</p>
+        </div>
+    </footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</html>

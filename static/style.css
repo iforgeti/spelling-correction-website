@@ -14,6 +14,10 @@
     justify-content: space-between;
 }
 
+.add-content {
+    margin-top: 10px;
+}
+
 .inputText {
     width: 70%;
     height: 400px;
@@ -79,7 +83,18 @@
     margin-top: 10px;
 }
 
-
+.ignore-button{
+    margin-right: 5px;
+    padding: 8px 12px;
+    background-color: #ff0019;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s ease-in-out;
+}
 
 /* Styles for the buttons */
 .sub-option-button {

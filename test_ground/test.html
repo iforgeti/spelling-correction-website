@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spacebar/Enter Demo</title>
+</head>
+<body>
+
+  <div class="inputText" id ="inputText" contenteditable="true" spellcheck="false" autocorrect="off" autocapitalize="off" data-lt-active="true" data-lt-toolbar="false" data-lt-editor-input="true" data-gramm="false"></div>
+
+<script>
+
+let timeoutId;
+let spacebarPressed = false;
+
+document.getElementById('inputText').addEventListener('keydown', function(event) {
+  if (event.key === ' ' || event.key === 'Enter') {
+    const selection = window.getSelection();
+    const range = selection.getRangeAt(0);
+    const node = range.startContainer;
+    const text = node.textContent;
+    const textBeforeCursor = text.substring(0, range.startOffset);
+    const lastCharBeforeCursor = textBeforeCursor.slice(-1);
+    console.log('Last character before cursor:', lastCharBeforeCursor);
+
+    if (!/\s/.test(lastCharBeforeCursor) && lastCharBeforeCursor !== '') {
+      spacebarPressed = true;
+      console.log('Space bar or Enter pressed, and text before cursor is not a space or enter.');
+      timeoutId = setTimeout(function() {
+          console.log("end");
+        }, 4500);
+    }else {
+    // If any other key is pressed, set spacebarPressed to false
+    spacebarPressed = false;
+  }
+  }
+});
+
+</script>
+
+</body>
+</html>

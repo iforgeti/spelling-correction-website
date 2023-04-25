@@ -1,3 +1,5 @@
+
+
 .red-underline {
     text-decoration-line: underline;
     /* text-decoration-style: wavy; */
@@ -19,6 +21,7 @@
 }
 
 .inputText {
+    transition: width 0.3s ease;
     width: 70%;
     height: 400px;
     resize: none;
@@ -396,5 +399,7 @@ footer {
 
 #suggestions {
 
-    width: 250px;
+    width: 300px;
+    transition: width 0.3s ease;
+
 }

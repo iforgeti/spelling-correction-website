@@ -11,19 +11,27 @@ let mode = "manual";
 
 var itxt_Editor = document.getElementById('inputText');
 var suggestions = document.getElementById('suggestions');
+var auto_button = document.getElementById('autoButton');
+var Form = document.getElementById('Form-container');
 
 
-
-
-document.getElementById('autoButton').addEventListener('click', function() {
+auto_button.addEventListener('click', function() {
 
     // Toggle the display property of suggestions list
     if (itxt_Editor.style.width === '100%') {
         itxt_Editor.style.width = '70%';
-        suggestions.style.width = '300px'
+        suggestions.style.width = '300px';
+
+        auto_button.style.backgroundColor = "#ffffff";
+        auto_button.style.color = 'black';
+        Form.style.backgroundColor = '#262626';
     } else {
         itxt_Editor.style.width = '100%';
-        suggestions.style.width = '0px'
+        suggestions.style.width = '0px';
+
+        auto_button.style.backgroundColor ='black';
+        auto_button.style.color = '#FFFF00';
+        Form.style.backgroundColor = '#8B0000'
     }
 
     if (mode === "manual") {
@@ -157,10 +165,7 @@ function fetch_manual() {
     var cursorPosition = sel.anchorOffset;
     console.log('Text cursor position: ' + cursorPosition);
     if (wordCount >= 2){
-        // var input_html = itxt_Editor.innerHTML;
-        // const result = createSpans(input_html, countId);
-        // itxt_Editor.innerHTML = result.updatedText;
-        // countId = result.countId;
+
         fetch('/suggestions?inputText=' + encodeURIComponent(input_text)+'&cursorPosition=' + cursorPosition)
             .then(response => response.json())
             .then(data => {
@@ -202,7 +207,7 @@ function fetch_auto(isend) {
     console.log(input_text);
     var cursorPosition = sel.anchorOffset;
     console.log('Text cursor position: ' + cursorPosition);
-    if (wordCount >= 2){
+    if (wordCount >= 3){
 
         fetch('/suggestions_auto?inputText=' + encodeURIComponent(input_text)+'&cursorPosition=' + cursorPosition)
             .then(response => response.json())
@@ -245,12 +250,15 @@ itxt_Editor.addEventListener('keydown', function(event) {
                 // Clear the previous timer, if any
                 fetch_auto(false);
 
-                clearTimeout(timeoutId);
-                // Set a new timer to log "press" to the console after 6 seconds of no text input
-                timeoutId = setTimeout(function() {
-                    fetch_auto(true);
-                }, 3000);
-             }
+
+
+             }  
+
+            clearTimeout(timeoutId);
+            // Set a new timer to log "press" to the console after 6 seconds of no text input
+            timeoutId = setTimeout(function() {
+                fetch_auto(true);
+            }, 3000);
         }
 
 
@@ -258,38 +266,3 @@ itxt_Editor.addEventListener('keydown', function(event) {
 
 });
 
-// if (mode === "manual"){
-//     var debounceTimer;
-
-//     itxt_Editor.addEventListener('keydown', function(event) {
-//         clearTimeout(debounceTimer);
-
-//         debounceTimer = setTimeout(function() {
-        
-//             fetch_manual();
-            
-//         },1200);
-//     });
-// }else{
-    
-//     let timeoutId;
-//     // Function to be triggered when spacebar is pressed
-//     function handleSpacebarPress() {
-//       console.log("Spacebar pressed!"); // Replace with your desired action
-//       // fetch_auto();
-//     }
-    
-//     // Event listener for keydown event
-//     itxt_Editor.addEventListener('keydown', (event) => {
-//       if (event.code === "Space") { // 32 is the keycode for spacebar
-//         if (timeoutId) {
-//           clearTimeout(timeoutId); // Clear any existing timeout
-//         }
-//         timeoutId = setTimeout(() => {
-//           handleSpacebarPress(); // Trigger the function after 5 seconds of inactivity
-//         }, 5000);
-//       }
-//     });
-      
-
-// }

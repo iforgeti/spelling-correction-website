@@ -49,8 +49,9 @@ def auto_process(prompt):
 
 app = Flask(__name__)
 
-mlm = pipeline("fill-mask", model="Earth1221/Bart_Spelling")
-hub_model_id = "Earth1221/Bart_Spelling"
+hub_model_id = "Earth1221/Bart_spell_full"
+mlm = pipeline("fill-mask", model=hub_model_id)
+
 model = AutoModelForSeq2SeqLM.from_pretrained(hub_model_id)
 tokenizer = AutoTokenizer.from_pretrained(hub_model_id)
 

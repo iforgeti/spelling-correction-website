@@ -1,4 +1,15 @@
-
+#autoButton {
+    margin-right: 5px;
+    padding: 8px 12px;
+    background-color: #ffffff;
+    color: #010101;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s ease-in-out;    
+}
 
 .red-underline {
     text-decoration-line: underline;
@@ -230,7 +241,7 @@ section h2 {
     max-width: 800px;
     margin: 0 auto;
 }
-/* 
+
 form input[type="text"],
 form input[type="email"],
 form textarea {
@@ -260,7 +271,7 @@ form input[type="submit"] {
 
 form input[type="submit"]:hover {
     background-color: #666;
-} */
+}
 
 footer {
     background-color: #333;
@@ -346,6 +357,7 @@ footer {
     border-radius: 5px;
     background-color: #262626;
     box-sizing: border-box; /* Include padding and border in the width */
+    transition: background-color 0.3s ease;
 }
 
 

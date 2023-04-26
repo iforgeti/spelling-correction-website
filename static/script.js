@@ -3,6 +3,7 @@ let dataList = [];
 // Set focus on the inputText div
 document.getElementById('inputText').focus();
 
+let save_text = "";
 // Get the text cursor position
 var sel = window.getSelection();
 let countId = 0;
@@ -36,6 +37,7 @@ auto_button.addEventListener('click', function() {
 
     if (mode === "manual") {
         mode = "auto";
+        fetch_auto(true);
         console.log("auto")
         
     } else {
@@ -77,7 +79,7 @@ function Replace(option, subOption) {
     const currentText = itxt_Editor.innerText;
 
     // Use regular expression to match whole words only
-    const regex = new RegExp("\\b" + option + "\\b", "g");
+    const regex = new RegExp("\\b" + option , "g");
     const newText = currentText.replace(regex, subOption);
     itxt_Editor.innerText = newText;
 
@@ -248,17 +250,18 @@ itxt_Editor.addEventListener('keydown', function(event) {
             if (!/\s/.test(lastCharBeforeCursor) && lastCharBeforeCursor !== '') {
                 console.log('Space bar or Enter pressed, and text before cursor is not a space or enter.');
                 // Clear the previous timer, if any
-                fetch_auto(false);
-
+                fetch_auto(true);
+                
+                // clearTimeout(timeoutId);
+                // timeoutId = setTimeout(function() {
+                //     fetch_auto(true);
+                // }, 3000);
 
 
              }  
 
-            clearTimeout(timeoutId);
-            // Set a new timer to log "press" to the console after 6 seconds of no text input
-            timeoutId = setTimeout(function() {
-                fetch_auto(true);
-            }, 3000);
+            // clearTimeout(timeoutId);
+
         }
 
 

@@ -11,15 +11,13 @@
     transition: background-color 0.3s ease-in-out;    
 }
 
-.red-underline {
-    text-decoration-line: underline;
-    /* text-decoration-style: wavy; */
-    text-decoration-color: red;
-  }
+.hiddenText{
+    width: 0px;
+}
   
-  .highlighted {
-    background-color: rgb(230, 121, 121);
-  }
+.highlighted {
+background-color: rgb(230, 121, 121);
+}
 
 /* Style for the word suggestion popup */
 .form-group {

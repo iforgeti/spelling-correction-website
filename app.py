@@ -29,7 +29,11 @@ def check_word(sentence) :
                 for ii in mask_out :
                     if ((ii['token_str']).strip()).startswith(result.split()[idx][:1]) :
                         list_worng_word.append(ii['token_str'].strip())
-                dict_candidate[i] = list_worng_word[:3]
+
+                if i[-1] == ".":
+                    dict_candidate[i] = [word+"." for word in list_worng_word[:3]]
+                else:
+                    dict_candidate[i] = list_worng_word[:3]
                 list_worng_word = []
         
         except:
@@ -39,11 +43,16 @@ def check_word(sentence) :
 
 def auto_process(prompt):
 
+
     input_ids = tokenizer.encode(prompt, return_tensors='pt')
     output = model.generate(input_ids, max_length=512)
     result = tokenizer.decode(output[0], skip_special_tokens=True)
-    if prompt[-1]=="." and (prompt.split()[-1] != result.split[-1]):
-        result = result + "."
+    try:
+        if prompt[-1]=="." and (prompt.split()[-1] != result.split[-1]):
+            result = result + "."
+    except:
+        pass
+
     return result+" "
 
 
